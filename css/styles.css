@@ -1,0 +1,890 @@
+/*===============================================================
+          Website Resets
+==================================================================*/
+*,
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   outline: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+}
+
+*::-moz-focus-inner {
+   border: 0;
+}
+
+*:focus {
+   outline: none;
+}
+
+/*===============================================================
+			html, body, and utility classes
+==================================================================*/
+:root {
+   /************************* fonts *************************/
+   --font-body: 'Mulish', sans-serif;
+
+   /************************* fluid body text *************************/
+   --fluid-body-text-p000: clamp(0.51rem, 0.13vi + 0.49rem, 0.64rem);
+   --fluid-body-text-p100: clamp(0.64rem, 0.16vi + 0.61rem, 0.8rem);
+   --fluid-body-text-p200: clamp(0.8rem, 0.2vi + 0.76rem, 1rem);
+   --fluid-body-text-p300: clamp(1rem, 0.25vi + 0.95rem, 1.25rem);
+   --fluid-body-text-p400: clamp(1.25rem, 0.31vi + 1.19rem, 1.56rem);
+   --fluid-body-text-p500: clamp(1.56rem, 0.39vi + 1.48rem, 1.95rem);
+   --fluid-body-text-p600: clamp(1.95rem, 0.49vi + 1.86rem, 2.44rem);
+   --fluid-body-text-p700: clamp(2.44rem, 0.61vi + 2.32rem, 3.05rem);
+   --fluid-body-text-p800: clamp(3.05rem, 0.76vi + 2.9rem, 3.81rem);
+   --fluid-body-text-p900: clamp(3.81rem, 0.95vi + 3.62rem, 4.77rem);
+
+   /************************* typography scale *************************/
+   --font-size-heading-01: 3.815rem;
+   --font-size-heading-02: 3.052rem;
+   --font-size-heading-03: 2.441rem;
+   --font-size-heading-04: 1.953rem;
+   --font-size-heading-05: 1.563rem;
+   --font-size-heading-06: 1.25rem;
+   --font-size-paragraph: 1rem;
+   --font-size-small: 0.8rem;
+   /************************* font weight *************************/
+   --font-weight-light: 300;
+   --font-weight-normal: 400;
+   --font-weight-medium: 600;
+   --font-weight-semibold: 700;
+   --font-weight-bold: 800;
+   --font-weight-black: 900;
+   /************************* colors *************************/
+   --color-primary-000: hsl(218, 77%, 95%);
+   --color-primary-100: hsl(218, 77%, 90%);
+   --color-primary-200: hsl(218, 77%, 80%);
+   --color-primary-300: hsl(218, 77%, 75%);
+   --color-primary-400: hsl(218, 77%, 70%);
+   --color-primary-500: hsl(218, 77%, 65%);
+   --color-primary-600: hsl(218, 77%, 55%);
+   --color-primary-700: hsl(218, 77%, 50%);
+   --color-primary-800: hsl(218, 77%, 45%);
+   --color-primary-900: hsl(218, 77%, 35%);
+   /* neutral colors */
+   --color-neutral-000: hsl(218, 0%, 98%);
+   --color-neutral-100: hsl(218, 0%, 88%);
+   --color-neutral-200: hsl(218, 0%, 78%);
+   --color-neutral-300: hsl(218, 0%, 68%);
+   --color-neutral-400: hsl(218, 0%, 58%);
+   --color-neutral-500: hsl(218, 0%, 48%);
+   --color-neutral-600: hsl(218, 0%, 38%);
+   --color-neutral-700: hsl(218, 0%, 28%);
+   --color-neutral-800: hsl(218, 0%, 18%);
+   --color-neutral-900: hsl(218, 0%, 10%);
+   /*--color-neutral-900: #1a1a1a;*/
+   /* augmented colors */
+   --color-augmented-000: hsl(218, 12%, 95%);
+   --color-augmented-100: hsl(218, 12%, 85%);
+   --color-augmented-200: hsl(218, 12%, 75%);
+   --color-augmented-300: hsl(218, 15%, 65%);
+   --color-augmented-400: hsl(218, 15%, 55%);
+   --color-augmented-500: hsl(218, 15%, 45%);
+   --color-augmented-600: hsl(218, 15%, 35%);
+   --color-augmented-700: hsl(218, 20%, 25%);
+   --color-augmented-800: hsl(218, 25%, 15%);
+   --color-augmented-900: hsl(218, 30%, 15%);
+   /************************* semantic colors *************************/
+   /* semantic inform colors */
+   --color-semantic-inform-400: hsl(215, 96%, 33%);
+   --color-semantic-inform-300: hsl(215, 96%, 38%);
+   --color-semantic-inform-200: hsl(215, 96%, 43%);
+   --color-semantic-inform-100: hsl(215, 96%, 48%);
+   /* semantic success colors */
+   --color-semantic-success-400: hsl(100, 96%, 33%);
+   --color-semantic-success-300: hsl(100, 96%, 38%);
+   --color-semantic-success-200: hsl(100, 96%, 43%);
+   --color-semantic-success-100: hsl(100, 96%, 48%);
+   /* semantic warn colors */
+   --color-semantic-warn-400: hsl(44.94, 96%, 50%);
+   --color-semantic-warn-300: hsl(44.94, 96%, 55%);
+   --color-semantic-warn-200: hsl(44.94, 96%, 60%);
+   --color-semantic-warn-100: hsl(44.94, 96%, 65%);
+   --color-semantic-warn-000: hsl(42.9, 74.4%, 49.02%);
+   /* semantic extreme warn colors */
+   --color-semantic-extreme-warn-400: hsl(28.47, 96%, 50%);
+   --color-semantic-extreme-warn-300: hsl(28.47, 96%, 55%);
+   --color-semantic-extreme-warn-200: hsl(28.47, 96%, 60%);
+   --color-semantic-extreme-warn-100: hsl(28.47, 96%, 65%);
+   /* semantic alert colors */
+   --color-semantic-alert-400: hsl(0, 96%, 33%);
+   --color-semantic-alert-300: hsl(0, 96%, 38%);
+   --color-semantic-alert-200: hsl(0, 96%, 43%);
+   --color-semantic-alert-100: hsl(0, 96%, 48%);
+
+   /**************** timing functions ****************/
+   --tf-ease-basic-01: cubic-bezier(0.26, 0.1, 0.27, 1.55);
+   --tf-ease-basic-02: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+   --tf-ease: cubic-bezier(0.19, 0.08, 0.46, 0.99);
+   --tf-ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+   --tf-ease-in: cubic-bezier(0.33, 0.02, 0.84, 0.75);
+   --tf-ease-out: cubic-bezier(0.05, 0.21, 0.66, 0.98);
+   --tf-ease-in-out: cubic-bezier(0.38, 0, 0.57, 0.99);
+   --tf-ease-linear: cubic-bezier(0.19, 0.08, 0.84, 0.75);
+   --tf-ease-smooth: cubic-bezier(0.1, 0.7, 0.6, 0.9);
+   --tf-ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+   --tf-ease-snappy-01: cubic-bezier(0.5, 0, 0.4, 0.98);
+   --tf-ease-snappy-02: cubic-bezier(.17, .67, .83, .67);
+
+   /**************** radius ****************/
+   --radius-000: 1px;
+   --radius-100: 2px;
+   --radius-200: 3px;
+   --radius-300: 5px;
+   --radius-400: 8px;
+   --radius-500: 13px;
+   --radius-600: 21px;
+   --radius-700: 34px;
+   --radius-800: 55px;
+   --radius-900: 50%;
+
+   /************************* border-radius *************************/
+   --br-border-radius-000: 1px;
+   --br-border-radius-100: 2px;
+   --br-border-radius-200: 3px;
+   --br-border-radius-300: 5px;
+   --br-border-radius-400: 8px;
+   --br-border-radius-500: 13px;
+   --br-border-radius-600: 21px;
+   --br-border-radius-700: 34px;
+   --br-border-radius-800: 55px;
+   --br-border-radius-900: 50%;
+
+   /************************* box shadows *************************/
+   /* box-shadow-right */
+   --bs-box-shadow-right-000: 8px 0px 8px -5px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-right-100: 8px 0px 8px -5px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-right-200: 8px 0px 8px -5px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-right-300: 8px 0px 8px -3px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-right-400: 8px 0px 8px -3px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-right-500: 8px 0px 8px -3px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-right-600: 8px 0px 8px 0px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-right-700: 8px 0px 8px 0px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-right-800: 8px 0px 8px 0px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-right-900: 8px 0px 8px 0px rgba(34, 40, 45, 0.55);
+   /* box-shadow-bottom */
+   --bs-box-shadow-bottom-000: 0px 8px 8px -5px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-100: 0px 8px 8px -5px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-200: 0px 8px 8px -5px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-300: 0px 8px 8px -3px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-400: 0px 8px 8px -3px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-500: 0px 8px 8px -3px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-600: 0px 8px 8px 0px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-700: 0px 8px 8px 0px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-800: 0px 8px 8px 0px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-900: 0px 8px 8px 0px rgba(34, 40, 45, 0.55);
+   /* box-shadow-bottom-right */
+   --bs-box-shadow-bottom-right-000: 3px 3px 8px -1px rgba(34, 40, 45, 0.15), 3px 3px 8px -1px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-right-100: 3px 3px 8px -1px rgba(34, 40, 45, 0.25), 3px 3px 8px -1px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-right-200: 3px 3px 8px -1px rgba(34, 40, 45, 0.35), 3px 3px 8px -1px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-right-300: 5px 3px 13px -1px rgba(34, 40, 45, 0.15), 5px 3px 13px -1px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-right-400: 5px 3px 13px -1px rgba(34, 40, 45, 0.25), 5px 3px 13px -1px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-right-500: 5px 3px 13px -1px rgba(34, 40, 45, 0.35), 5px 3px 13px -1px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-right-600: 5px 3px 21px -1px rgba(34, 40, 45, 0.15), 5px 3px 21px -1px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-right-700: 5px 3px 21px -1px rgba(34, 40, 45, 0.25), 5px 3px 21px -1px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-right-800: 5px 3px 21px -1px rgba(34, 40, 45, 0.35), 5px 3px 21px -1px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-right-900: 5px 3px 5px -1px rgba(34, 40, 45, 0.25), 5px 3px 5px -1px rgba(34, 40, 45, 0.25);
+
+   /**************** letter spacing ****************/
+   --letter-spacing-100: 1px;
+   --letter-spacing-200: 2px;
+   --letter-spacing-300: 3px;
+   --letter-spacing-400: 4px;
+   --letter-spacing-500: 5px;
+   --letter-spacing-minus-100: -1px;
+   --letter-spacing-minus-200: -2px;
+   --letter-spacing-minus-300: -3px;
+   --letter-spacing-minus-400: -4px;
+   --letter-spacing-minus-500: -5px;
+
+   /**************** margin spacing (soft 8px grid) ****************/
+   --m-0: 0px;
+   --m-1: 8px;
+   --m-2: 12px;
+   --m-3: 16px;
+   --m-4: 24px;
+   --m-5: 32px;
+   --m-6: 40px;
+   --m-7: 48px;
+   --m-8: 56px;
+   --m-9: 64px;
+   --m-10: 80px;
+
+   /**************** padding spacing (soft 8px grid) ****************/
+   --p-0: 0px;
+   --p-1: 8px;
+   --p-2: 12px;
+   --p-3: 16px;
+   --p-4: 24px;
+   --p-5: 32px;
+   --p-6: 40px;
+   --p-7: 48px;
+   --p-8: 56px;
+   --p-9: 64px;
+   --p-10: 80px;
+
+   /**************** spacing rem ****************/
+   --space-rem-000: 0.25rem; /* 4px */
+   --space-rem-100: 0.5rem; /* 8px */
+   --space-rem-200: 0.75rem; /* 12px */
+   --space-rem-300: 1rem; /* 16px */
+   --space-rem-400: 1.25rem; /* 20px */
+   --space-rem-500: 1.5rem; /* 24px */
+   --space-rem-600: 2rem; /* 32px */
+   --space-rem-700: 2.5rem; /* 40px */
+   --space-rem-800: 3rem; /* 48px */
+   --space-rem-900: 4rem; /* 64px */
+
+   /**************** spacing em ****************/
+   --space-em-000: 0.25rem; /* 4px */
+   --space-em-100: 0.5rem; /* 8px */
+   --space-em-200: 0.75rem; /* 12px */
+   --space-em-300: 1rem; /* 16px */
+   --space-em-400: 1.25rem; /* 20px */
+   --space-em-500: 1.5rem; /* 24px */
+   --space-em-600: 2rem; /* 32px */
+   --space-em-700: 2.5rem; /* 40px */
+   --space-em-800: 3rem; /* 48px */
+   --space-em-900: 4rem; /* 64px */
+
+   /**************** breakpoints ****************/
+   --breakpoint-xxs: 20rem; /*320px */
+   --breakpoint-xs: 30rem; /*480px */
+   --breakpoint-sm: 40rem; /*640px */
+   --breakpoint-md: 48rem; /*768px */
+   --breakpoint-lg: 64rem; /*1024px;*/
+   --breakpoint-xl: 80rem; /*1280px;*/
+   --breakpoint-2xl: 96rem; /*1536px;*/
+   --breakpoint-3xl: 120rem; /*1920px;*/
+
+}
+
+html {
+   font-size: 100%;
+   scroll-behavior: smooth;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+}
+
+@media screen and (max-width: 540px) {
+   html {
+      font-size: 75%;
+   }
+}
+
+/*noinspection ALL*/
+body {
+   position: relative;
+   z-index: 1;
+   overflow-x: hidden;
+   font-family: var(--font-body);
+   font-size: 1rem;
+   font-weight: normal;
+   font-optical-sizing: auto;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   line-height: 1.5;
+   color: #333;
+   background-color: #f4f4f4;
+   background-color: var(--color-neutral-200);
+}
+
+/*===============================================================
+       Typography Scale - 1.250 - Major Third
+==================================================================*/
+/*noinspection ALL*/
+h1, h2, h3, h4, h5, h6 {
+   font-family: var(--font-body);
+   font-weight: var(--font-weight-normal);
+   font-style: normal;
+   font-optical-sizing: auto;
+   text-rendering: optimizeLegibility;
+   line-height: 1.3;
+}
+
+h1 {
+   font-size: 3.815rem;
+}
+
+h2 {
+   font-size: 3.052rem;
+}
+
+h3 {
+   font-size: 2.441rem;
+}
+
+h4 {
+   font-size: 1.953rem;
+}
+
+h5 {
+   font-size: 1.563rem;
+}
+
+h6 {
+   font-size: 1.25rem;
+}
+
+/*noinspection ALL*/
+p, small {
+   font-family: var(--font-body);
+   font-weight: var(--font-weight-normal);
+   font-style: normal;
+   font-optical-sizing: auto;
+   text-rendering: optimizeLegibility;
+}
+
+p {
+   font-size: 1rem;
+   margin-bottom: 1em;
+}
+
+small {
+   font-size: 0.8rem;
+}
+
+img {
+   max-width: 100%;
+   height: auto;
+}
+
+ul {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+   cursor: pointer;
+   opacity: 0.75;
+}
+
+a:hover {
+   cursor: pointer;
+   opacity: 1;
+}
+
+/*===============================================================
+          utils-container styles
+==================================================================*/
+.utils-container-fluid {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 16px;
+   padding-right: 16px;
+}
+
+.utils-container {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 16px;
+   padding-right: 16px;
+}
+
+@media screen and (min-width: 576px) {
+   .utils-container {
+      max-width: 544px;
+   }
+}
+
+@media screen and (min-width: 768px) {
+   .utils-container {
+      max-width: 720px;
+   }
+}
+
+@media screen and (min-width: 992px) {
+   .utils-container {
+      max-width: 960px;
+   }
+}
+
+@media screen and (min-width: 1200px) {
+   .utils-container {
+      max-width: 1144px;
+   }
+}
+
+@media screen and (min-width: 1400px) {
+   .utils-container {
+      max-width: 1320px;
+   }
+}
+
+.flex-center {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.grid-center {
+   display: grid;
+   place-items: center;
+}
+
+.grid-container {
+   margin: 0 auto;
+   width: 90%;
+   display: grid;
+   row-gap: 3rem;
+   column-gap: 2rem;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-container-12 {
+   margin: 0 auto;
+   width: 90%;
+   display: grid;
+   row-gap: 3rem;
+   column-gap: 2rem;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-column-1 {
+   display: grid;
+   grid-template-columns: repeat(1, minmax(0, 1fr));
+   column-gap: 2rem;
+}
+
+.grid-column-2 {
+   display: grid;
+   grid-template-columns: repeat(2, minmax(0, 1fr));
+   column-gap: 2rem;
+}
+
+.grid-column-3 {
+   display: grid;
+   grid-template-columns: repeat(3, minmax(0, 1fr));
+   column-gap: 2rem;
+}
+
+.grid-column-4 {
+   display: grid;
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+   column-gap: 2rem;
+}
+
+.paragraph {
+   font-size: 1.6rem;
+}
+
+.paragraph:not(:last-child) {
+   margin-bottom: 3em;
+}
+
+.utils-text-center {
+   text-align: center;
+}
+
+.utils-margin-bottom-small {
+   margin-bottom: 1.5em;
+}
+
+.utils-margin-bottom-medium {
+   margin-bottom: 4em;
+}
+
+.utils-margin-bottom-large {
+   margin-bottom: 8em;
+}
+
+/*===============================================================
+       Scrollbar Styles
+==================================================================*/
+/* width */
+::-webkit-scrollbar {
+   visibility: hidden;
+   width: 3px;
+   height: 5px;
+   background-color: transparent;
+}
+
+/* track */
+::-webkit-scrollbar-track {
+   margin-left: 1px;
+   /*box-shadow: inset 0 0 5px var(--color-blue-01-200);*/
+   border-radius: 3px;
+   background-color: transparent;
+}
+
+/* handle */
+::-webkit-scrollbar-thumb {
+   background: transparent;
+   border-radius: var(--radius-200);
+   width: 3px;
+   height: 8px;
+   /*box-shadow: inset 0 0 5px var(--color-blue-01-200);*/
+   cursor: pointer;
+   transition: all 0.3s cubic-bezier(0.1, 0.7, 0.6, 0.9);
+   opacity: 0.75;
+}
+
+/* handle on hover */
+::-webkit-scrollbar-thumb:hover {
+   background-color: var(--color-augmented-900);
+   cursor: pointer;
+}
+
+/*===============================================================
+       ::placeholder styles
+==================================================================*/
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+   font-weight: var(--font-weight-normal);
+   color: var(--color-augmented-700);
+   opacity: 0.5;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+   font-weight: var(--font-weight-normal);
+   color: var(--color-augmented-700);
+   opacity: 0.5;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+   font-weight: var(--font-weight-normal);
+   color: var(--color-augmented-700);
+   opacity: 0.5;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   font-weight: var(--font-weight-normal);
+   color: var(--color-augmented-700);
+   opacity: 0.5;
+}
+
+/*===============================================================
+          preloader styles
+==================================================================*/
+.preloader {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: var(--color-neutral-800);
+   z-index: 9999;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   opacity: 1;
+}
+
+.preloader.fade-out {
+   animation-name: fade-out;
+   animation-duration: 5s;
+   animation-iteration-count: 1;
+   animation-timing-function: var(--tf-ease-in);
+   animation-fill-mode: forwards;
+}
+
+.preloader-gif {
+   width: 33%;
+   align-self: center;
+}
+
+/* Extra Small Devices (Landscape Phones & Portrait Tablets) */
+@media (max-width: 767px) {
+   .preloader-gif {
+      width: 50%;
+
+   }
+}
+
+/*===============================================================
+          main styles
+==================================================================*/
+.main {
+   position: relative;
+   z-index: 1;
+   overflow-x: hidden;
+   width: 100%;
+   height: 100vh;
+}
+
+/*===============================================================
+          button-container and button styles
+==================================================================*/
+.button-container {
+   position: relative;
+   top: 15%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+   width: min(100% - 2rem, 600px);
+   margin: 0 auto;
+}
+
+button[class^="btn"] {
+   flex: 1 1 120px;
+   min-height: 44px;
+   padding: 0.75rem 1rem;
+   font: inherit;
+   font-weight: var(--font-weight-semibold);
+   text-transform: uppercase;
+   text-align: center;
+   border-radius: var(--br-border-radius-300);
+   cursor: pointer;
+   transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+button[class^="btn"]:hover {
+   color: var(--color-neutral-100);
+}
+
+button[class^="btn"].success {
+   color: var(--color-neutral-000);
+   background-color: var(--color-semantic-success-400);
+   border: 2px solid var(--color-semantic-success-400);
+}
+button[class^="btn"].success:hover,
+button[class^="btn"].success:focus,
+button[class^="btn"].success:active {
+   color: var(--color-neutral-100);
+   background-color: var(--color-semantic-success-300);
+}
+
+button[class^="btn"].error {
+   color: var(--color-neutral-000);
+   background-color: var(--color-semantic-alert-400);
+   border: 2px solid var(--color-semantic-alert-400);
+}
+button[class^="btn"].error:hover,
+button[class^="btn"].error:focus,
+button[class^="btn"].error:active{
+   color: var(--color-neutral-100);
+   background-color: var(--color-semantic-alert-100);
+}
+
+button[class^="btn"].warn {
+   color: var(--color-neutral-000);
+   background-color: var(--color-semantic-warn-400);
+   border: 2px solid var(--color-semantic-warn-400);
+}
+button[class^="btn"].warn:hover,
+button[class^="btn"].warn:focus,
+button[class^="btn"].warn:active{
+   color: var(--color-neutral-100);
+   background-color: var(--color-semantic-warn-300);
+}
+
+button[class^="btn"].inform  {
+   color: var(--color-neutral-000);
+   background-color: var(--color-semantic-inform-400);
+   border: 2px solid var(--color-semantic-inform-400);
+}
+button[class^="btn"].inform:hover,
+button[class^="btn"].inform:focus,
+button[class^="btn"].inform:active{
+   color: var(--color-neutral-100);
+   background-color: var(--color-semantic-inform-300);
+}
+
+@media screen and (max-width: 568px) {
+   .button-container {
+      width: calc(100% - 2rem);
+      gap: 0.75rem;
+   }
+
+   button[class^="btn"] {
+      flex: 1 1 calc(50% - 0.75rem);
+      min-height: 48px;
+   }
+}
+
+/*===============================================================
+          toast-container and toast styles
+==================================================================*/
+.toast-container {
+   position: absolute;
+   bottom: 33.333vh;
+   right: 32px;
+   width: 100%;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   padding: 1.5rem;
+
+}
+
+.toast {
+   position: relative;
+   width: 400px;
+   height: 80px;
+   display: flex;
+   align-items: center;
+   margin: 16px 0;
+   padding: 16px;
+   font-weight: 500;
+   background-color: var(--color-augmented-000);
+   border-top-right-radius: var(--br-border-radius-400);
+   border-bottom-right-radius: var(--br-border-radius-400);
+   box-shadow: var(--bs-box-shadow-bottom-right-500);
+   transform: translateX(100%);
+   animation-name: move-in-from-right;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-timing-function: var(--tf-ease);
+   animation-fill-mode: forwards;
+
+}
+
+@media screen and (max-width: 540px) {
+   .toast {
+      width: 300px;
+   }
+}
+@media screen and (max-width: 390px) {
+   .toast-container {
+      right: 16px;
+   }
+   .toast {
+      width: 248px;
+   }
+}
+
+.toast.move-back-to-right {
+   animation-name: move-back-to-right;
+   animation-duration: 1s;
+   animation-iteration-count: 1;
+   animation-timing-function: var(--tf-ease);
+   animation-fill-mode: forwards;
+}
+
+
+.toast.success {
+   gap: 8px;
+   color: var(--color-semantic-success-400);
+   border-left: 8px solid var(--color-semantic-success-400);
+}
+
+.toast.error {
+   gap: 8px;
+   color: var(--color-semantic-alert-400);
+   border-left: 8px solid var(--color-semantic-alert-400);
+}
+
+.toast.warn {
+   gap: 8px;
+   color: var(--color-semantic-warn-400);
+   border-left: 8px solid var(--color-semantic-warn-400);
+}
+
+.toast.inform {
+   gap: 8px;
+   color: var(--color-semantic-inform-400);
+   border-left: 8px solid var(--color-semantic-inform-400);
+}
+
+.toast.success::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background-color: var(--color-semantic-success-400);
+   animation: progress-left 4s linear forwards;
+   animation-delay: 1s;
+}
+
+.toast.error::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background-color: var(--color-semantic-alert-400);
+   animation: progress-left 4s linear forwards;
+   animation-delay: 1s;
+}
+
+.toast.warn::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background-color: var(--color-semantic-warn-400);
+   animation: progress-left 4s linear forwards;
+   animation-delay: 1s;
+}
+
+.toast.inform::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background-color: var(--color-semantic-inform-400);
+   animation: progress-left 4s linear forwards;
+   animation-delay: 1s;
+}
+
+/*===============================================================
+          fontawesome icons styles
+==================================================================*/
+.fa-solid {
+   font-size: 1.5rem;
+}
+
+/*===============================================================
+          keyframes
+==================================================================*/
+@keyframes fade-out {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+   }
+}
+
+@keyframes progress-left {
+   100% {
+      width: 0;
+   }
+}
+
+@keyframes move-in-from-right {
+   0% {
+      opacity: 0;
+      transform: translateX(2000px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+@keyframes move-back-to-right {
+   0% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+   50% {
+      transform: translateX(-50px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(2000px);
+   }
+}
