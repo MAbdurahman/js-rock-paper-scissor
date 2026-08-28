@@ -1,5 +1,6 @@
 /*-----Javascript for js-create-design-website */
-$(document).ready(function () {
-	
+'use strict';
 
+document.addEventListener("DOMContentLoaded", function(){
+   console.log("DOM fully loaded and parsed");
 });
