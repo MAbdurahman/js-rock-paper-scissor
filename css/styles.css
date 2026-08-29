@@ -286,6 +286,13 @@ body {
    position: relative;
    z-index: 1;
    overflow-x: hidden;
+   height: 100vh;
+   min-height: 100vh;
+   width: 100%;
+   min-width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    font-family: var(--font-body);
    font-size: 1rem;
    font-weight: normal;
@@ -294,9 +301,8 @@ body {
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
    line-height: 1.5;
-   color: #333;
-   background-color: #f4f4f4;
-   background-color: var(--color-neutral-200);
+   color: var(--color-neutral-800);
+   background-color: var(--color-neutral-300);
 }
 
 /*===============================================================
@@ -605,286 +611,65 @@ a:hover {
 /*===============================================================
           main styles
 ==================================================================*/
-.main {
+.main-content {
    position: relative;
    z-index: 1;
    overflow-x: hidden;
-   width: 100%;
-   height: 100vh;
-}
-
-/*===============================================================
-          button-container and button styles
-==================================================================*/
-.button-container {
-   position: relative;
-   top: 15%;
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: center;
-   align-items: center;
-   gap: 1rem;
-   width: min(100% - 2rem, 600px);
-   margin: 0 auto;
-}
-
-button[class^="btn"] {
-   flex: 1 1 120px;
-   min-height: 44px;
-   padding: 0.75rem 1rem;
-   font: inherit;
-   font-weight: var(--font-weight-semibold);
-   text-transform: uppercase;
-   text-align: center;
-   border-radius: var(--br-border-radius-300);
-   cursor: pointer;
-   transition: background-color 0.3s ease, color 0.3s ease;
-
-}
-
-button[class^="btn"]:hover {
-   color: var(--color-neutral-100);
-}
-
-button[class^="btn"].success {
-   color: var(--color-neutral-000);
-   background-color: var(--color-semantic-success-400);
-   border: 2px solid var(--color-semantic-success-400);
-}
-button[class^="btn"].success:hover,
-button[class^="btn"].success:focus,
-button[class^="btn"].success:active {
-   color: var(--color-neutral-100);
-   background-color: var(--color-semantic-success-300);
-}
-
-button[class^="btn"].error {
-   color: var(--color-neutral-000);
-   background-color: var(--color-semantic-alert-400);
-   border: 2px solid var(--color-semantic-alert-400);
-}
-button[class^="btn"].error:hover,
-button[class^="btn"].error:focus,
-button[class^="btn"].error:active{
-   color: var(--color-neutral-100);
-   background-color: var(--color-semantic-alert-100);
-}
-
-button[class^="btn"].warn {
-   color: var(--color-neutral-000);
-   background-color: var(--color-semantic-warn-400);
-   border: 2px solid var(--color-semantic-warn-400);
-}
-button[class^="btn"].warn:hover,
-button[class^="btn"].warn:focus,
-button[class^="btn"].warn:active{
-   color: var(--color-neutral-100);
-   background-color: var(--color-semantic-warn-300);
-}
-
-button[class^="btn"].inform  {
-   color: var(--color-neutral-000);
-   background-color: var(--color-semantic-inform-400);
-   border: 2px solid var(--color-semantic-inform-400);
-}
-button[class^="btn"].inform:hover,
-button[class^="btn"].inform:focus,
-button[class^="btn"].inform:active{
-   color: var(--color-neutral-100);
-   background-color: var(--color-semantic-inform-300);
-}
-
-@media screen and (max-width: 568px) {
-   .button-container {
-      width: calc(100% - 2rem);
-      gap: 0.75rem;
-   }
-
-   button[class^="btn"] {
-      flex: 1 1 calc(50% - 0.75rem);
-      min-height: 48px;
-   }
-}
-
-/*===============================================================
-          toast-container and toast styles
-==================================================================*/
-.toast-container {
-   position: absolute;
-   bottom: 33.333vh;
-   right: 32px;
-   width: 100%;
-   overflow: hidden;
+   width: 50%;
+   height: 100%;
    display: flex;
    flex-direction: column;
-   align-items: flex-end;
-   padding: 1.5rem;
-
-}
-
-.toast {
-   position: relative;
-   width: 400px;
-   height: 80px;
-   display: flex;
+   justify-content: center;
    align-items: center;
-   margin: 16px 0;
-   padding: 16px;
-   font-weight: 500;
-   background-color: var(--color-augmented-000);
-   border-top-right-radius: var(--br-border-radius-400);
-   border-bottom-right-radius: var(--br-border-radius-400);
-   box-shadow: var(--bs-box-shadow-bottom-right-500);
-   transform: translateX(100%);
-   animation-name: move-in-from-right;
-   animation-duration: 1s;
-   animation-iteration-count: 1;
-   animation-timing-function: var(--tf-ease);
-   animation-fill-mode: forwards;
-
 }
 
-@media screen and (max-width: 540px) {
-   .toast {
-      width: 300px;
-   }
-}
-@media screen and (max-width: 390px) {
-   .toast-container {
-      right: 16px;
-   }
-   .toast {
-      width: 248px;
-   }
+.game-title {
+   font-weight: var(--font-weight-semibold);
+   color: var(--color-neutral-800);
+   text-align: center;
+   text-transform: capitalize;
+   letter-spacing: var(--letter-spacing-minus-100);
+   /*margin-bottom: 2rem;*/
 }
 
-.toast.move-back-to-right {
-   animation-name: move-back-to-right;
-   animation-duration: 1s;
-   animation-iteration-count: 1;
-   animation-timing-function: var(--tf-ease);
-   animation-fill-mode: forwards;
+.game-container {
+   display: flex;
+   flex-direction: column;
+
+   gap: 1rem;
+   max-width: 535px;
+   margin: 0 auto;
+   font-weight: var(--font-weight-medium);
+   color: var(--color-neutral-700);
+   text-align: center;
 }
 
-
-.toast.success {
-   gap: 8px;
-   color: var(--color-semantic-success-400);
-   border-left: 8px solid var(--color-semantic-success-400);
+.game-heading-container {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
 }
 
-.toast.error {
-   gap: 8px;
-   color: var(--color-semantic-alert-400);
-   border-left: 8px solid var(--color-semantic-alert-400);
+.sub-title {
+   font-weight: var(--font-weight-semibold);
+   color: var(--color-neutral-800);
 }
 
-.toast.warn {
-   gap: 8px;
-   color: var(--color-semantic-warn-400);
-   border-left: 8px solid var(--color-semantic-warn-400);
+.game-images {
+   display: flex;
+   gap: 7rem;
+   justify-content: center;
 }
 
-.toast.inform {
-   gap: 8px;
-   color: var(--color-semantic-inform-400);
-   border-left: 8px solid var(--color-semantic-inform-400);
+.game-image {
+   width: 100px;
 }
 
-.toast.success::after {
-   content: '';
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   height: 5px;
-   background-color: var(--color-semantic-success-400);
-   animation: progress-left 4s linear forwards;
-   animation-delay: 1s;
+.user-choice {
+   transform: rotate(90deg);
 }
 
-.toast.error::after {
-   content: '';
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   height: 5px;
-   background-color: var(--color-semantic-alert-400);
-   animation: progress-left 4s linear forwards;
-   animation-delay: 1s;
-}
-
-.toast.warn::after {
-   content: '';
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   height: 5px;
-   background-color: var(--color-semantic-warn-400);
-   animation: progress-left 4s linear forwards;
-   animation-delay: 1s;
-}
-
-.toast.inform::after {
-   content: '';
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   height: 5px;
-   background-color: var(--color-semantic-inform-400);
-   animation: progress-left 4s linear forwards;
-   animation-delay: 1s;
-}
-
-/*===============================================================
-          fontawesome icons styles
-==================================================================*/
-.fa-solid {
-   font-size: 1.5rem;
-}
-
-/*===============================================================
-          keyframes
-==================================================================*/
-@keyframes fade-out {
-   from {
-      opacity: 1;
-   }
-   to {
-      opacity: 0;
-   }
-}
-
-@keyframes progress-left {
-   100% {
-      width: 0;
-   }
-}
-
-@keyframes move-in-from-right {
-   0% {
-      opacity: 0;
-      transform: translateX(2000px);
-   }
-   100% {
-      opacity: 1;
-      transform: translateX(0);
-   }
-}
-
-@keyframes move-back-to-right {
-   0% {
-      opacity: 1;
-      transform: translateX(0);
-   }
-   50% {
-      transform: translateX(-50px);
-   }
-   100% {
-      opacity: 1;
-      transform: translateX(2000px);
-   }
+.computer-choice {
+   transform: rotate(-90deg) rotateY(180deg);
 }
