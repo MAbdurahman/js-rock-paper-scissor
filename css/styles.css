@@ -624,6 +624,7 @@ a:hover {
 }
 
 .game-title {
+   margin-bottom: 0.5em;
    font-weight: var(--font-weight-semibold);
    color: var(--color-neutral-800);
    text-align: center;
@@ -672,4 +673,67 @@ a:hover {
 
 .computer-choice {
    transform: rotate(-90deg) rotateY(180deg);
+}
+
+.game-message {
+   font-weight: var(--font-weight-semibold);
+   text-align: center;
+   text-transform: capitalize;
+   color: var(--color-neutral-800);
+   /*margin: 1.5rem 0;*/
+}
+
+/*===============================================================
+          option images
+==================================================================*/
+.option-images {
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   width: 100%;
+   max-width: 535px;
+   margin-top: 2.5rem;
+}
+
+.option-image-cell {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   opacity: 0.5;
+   cursor: pointer;
+   transition: opacity 0.3s ease;
+}
+
+.option-image-cell:hover {
+   opacity: 1;
+}
+
+.option-image {
+   width: 50px;
+}
+
+.option-caption {
+   margin-top: 1em;
+   font-size: 1.25rem;
+   font-weight: var(--font-weight-semibold);
+   color: var(--color-neutral-900);
+   pointer-events: none;
+}
+
+
+.blinking-text {
+   animation: blink 1s infinite;
+}
+
+/*===============================================================
+          keyframes
+==================================================================*/
+@keyframes blink {
+   0%,
+   100% {
+      opacity: 1;
+   }
+   50% {
+      opacity: 0;
+   }
 }
