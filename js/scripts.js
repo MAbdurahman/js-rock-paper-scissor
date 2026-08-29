@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
    const gameMessage = document.querySelector('#game-message');
 
-   function updateBlinkingState() {
+   function updateBlinkingTextState() {
       const expectedText = 'Let The Game Begin!';
 
       if (gameMessage.innerText.trim().toLowerCase() === expectedText) {
