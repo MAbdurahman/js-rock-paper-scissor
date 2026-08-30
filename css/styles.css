@@ -615,7 +615,8 @@ a:hover {
    position: relative;
    z-index: 1;
    overflow-x: hidden;
-   width: 50%;
+   /*width: 50%;*/
+   min-width: auto;
    height: 100%;
    display: flex;
    flex-direction: column;
