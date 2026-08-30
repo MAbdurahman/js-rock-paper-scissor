@@ -632,11 +632,17 @@ a:hover {
    letter-spacing: var(--letter-spacing-minus-100);
    /*margin-bottom: 2rem;*/
 }
+.game-win-container {
+display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   max-width: 535px;
+   margin: 0 auto;
+}
 
 .game-container {
    display: flex;
    flex-direction: column;
-
    gap: 1rem;
    max-width: 535px;
    margin: 0 auto;
@@ -645,12 +651,24 @@ a:hover {
    text-align: center;
 }
 
+.game-container.start .human-result {
+   transform-origin: right;
+   animation: humanShake 0.7s ease infinite;
+}
+
+.game-container.start .computer-result {
+   transform-origin: left;
+   animation: computerShake 0.7s ease infinite;
+}
+
 .game-heading-container {
    display: flex;
    flex-direction: row;
    align-items: center;
    justify-content: center;
 }
+
+
 
 .sub-title {
    font-weight: var(--font-weight-semibold);
@@ -667,12 +685,12 @@ a:hover {
    width: 100px;
 }
 
-.user-choice {
-   transform: rotate(90deg);
+.human-choice {
+   transform: rotate(-90deg) rotateY(180deg);
 }
 
 .computer-choice {
-   transform: rotate(-90deg) rotateY(180deg);
+   transform: rotate(90deg);
 }
 
 .game-message {
@@ -704,7 +722,8 @@ a:hover {
    transition: opacity 0.3s ease;
 }
 
-.option-image-cell:hover {
+.option-image-cell:hover,
+.option-image-cell.selected {
    opacity: 1;
 }
 
@@ -720,6 +739,15 @@ a:hover {
    pointer-events: none;
 }
 
+.human-choice.human-shake {
+   transform-origin: left;
+   animation: humanShake 0.7s var(--tf-ease-in-out) infinite;
+}
+
+.computer-choice.computer-shake {
+   transform-origin: right;
+   animation: computerShake 0.7s var(--tf-ease-in-out) infinite;
+}
 
 .blinking-text {
    animation: blink 1s infinite;
@@ -735,5 +763,17 @@ a:hover {
    }
    50% {
       opacity: 0;
+   }
+}
+
+@keyframes humanShake {
+   50% {
+      transform: rotate(-10deg);
+   }
+}
+
+@keyframes computerShake {
+   50% {
+      transform: rotate(10deg);
    }
 }

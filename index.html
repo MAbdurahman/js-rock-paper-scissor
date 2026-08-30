@@ -29,16 +29,19 @@
 <main class='main-content'>
     <section class='utils-container'>
         <h2 class='game-title'>Rock Paper Scissors</h2>
-        <div class='game-container'>
+        <div class='game-win-container'>
+            <h5 class='sub-title'>Computer Wins&nbsp;<span id='computer-wins'>0</span></h5>
+            <h5 class='sub-title'>Human Wins&nbsp;<span id='human-wins'>0</span></h5>
+        </div>
+        <div id='game-container' class='game-container'>
             <div class='game-images'>
-                <div class='user_result'>
-                    <h5 class='sub-title'>Human</h5>
-                    <img alt='User choice' class='game-image user-choice'
+                <div class='computer-result'>
+                    <img alt='Computer choice' class='game-image computer-choice'
                          src='./img/rock.png'/>
                 </div>
-                <div class='computer_result'>
-                    <h5 class='sub-title'>Computer</h5>
-                    <img alt='Computer choice' class='game-image computer-choice'
+                <div class='human-result'>
+                    
+                    <img alt='Human choice' class='game-image human-choice'
                          src='./img/rock.png'/>
                 </div>
             </div>
