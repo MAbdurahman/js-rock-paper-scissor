@@ -778,3 +778,12 @@ display: flex;
       transform: rotate(10deg);
    }
 }
+
+@keyframes fade-out {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+   }
+}
