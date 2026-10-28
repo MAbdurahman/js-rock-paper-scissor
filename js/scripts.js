@@ -1,6 +1,28 @@
 /*-----JavaScript for js-rock-paper-scissors----- */
 'use strict';
 
+document.addEventListener('DOMContentLoaded', function () {
+   // makes sure that whole site is loaded, so the 3000ms preloader coincides with
+   // the delay of 3000ms for the header content animation
+   const preloader = document.getElementById('preloader');
+   const preloaderGif = document.getElementById('preloader-gif');
+
+   if (preloaderGif) {
+      preloaderGif.style.transition = 'opacity 15000s ease-in-out';
+      preloaderGif.style.opacity = '0';
+
+   }
+   if (preloader) {
+      preloader.style.transition = 'opacity 15000s ease-in-out';
+      preloader.style.opacity = '0';
+   }
+
+   setTimeout(function () {
+      preloaderGif.style.display = 'none';
+      preloader.style.display = 'none';
+   }, 15000);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
    const gameMessage = document.querySelector('#game-message');
    const humanWins = document.querySelector('#human-wins');
